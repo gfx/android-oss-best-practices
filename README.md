@@ -24,6 +24,7 @@
 - [[SHOULD] ChangeLogファイルを置く](#should-changelogファイルを置く)
   - [Changelogの書き方についての緒論](#changelogの書き方についての緒論)
 - [[SHOULD] リリースエンジニアリングをコード化する](#should-リリースエンジニアリングをコード化する)
+- [[SHOULD] セマンティックバージョニングに従う](#should-セマンティックバージョニングに従う)
 - [License](#license)
 
 <!-- /TOC -->
@@ -169,6 +170,13 @@ code CHANGES.md # edit change logs
 git add -va
 make publish # run tests, build artifacts, publish to jcenter, and make a git tag to HEAD
 ```
+
+## [SHOULD] セマンティックバージョニングに従う
+
+* https://semver.org/
+* 「セマンティックバージョニングに従う」と明記しているライブラリは、継続して使うときにアップグレードの判断をしやすい
+* Android公式ライブラリも2018年からセマンティックバージョニングに従うと明記された
+  * https://android-developers.googleblog.com/2018/05/announcing-new-sdk-versioning.html
 
 ## License
 
