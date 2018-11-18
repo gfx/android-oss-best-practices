@@ -17,8 +17,8 @@
   - [READMEについての規格 "Standard Readme"](#readmeについての規格-standard-readme)
 - [[MUST] リリースしたら git tag を打ってpushする](#must-リリースしたら-git-tag-を打ってpushする)
 - [[MUST] CI を設定してバッヂをREADMEに置く](#must-ci-を設定してバッヂをreadmeに置く)
-- [[MUST] アーティファクトのgroupIdはライブラリ固有のもににする](#must-アーティファクトのgroupidはライブラリ固有のもににする)
-- [[MUST] bintrayに成果物を公開するときはライブラリごとにorgをつくる](#must-bintrayに成果物を公開するときはライブラリごとにorgをつくる)
+- [[SHOULD] アーティファクトのgroupIdはライブラリ固有のもににする](#should-アーティファクトのgroupidはライブラリ固有のもににする)
+- [[SHOULD] bintrayに成果物を公開するときはライブラリごとにorgをつくる](#should-bintrayに成果物を公開するときはライブラリごとにorgをつくる)
 - [[SHOULD] Android Studioでプロジェクトをつくる](#should-android-studioでプロジェクトをつくる)
 - [[SHOULD] テストを書く](#should-テストを書く)
 - [[SHOULD] ChangeLogファイルを置く](#should-changelogファイルを置く)
@@ -107,14 +107,14 @@ https://github.com/RichardLitt/standard-readme
 - 余裕があればカバレッジもとってバッジ化する（coverallsなどで可能）
 
 
-## [MUST] アーティファクトのgroupIdはライブラリ固有のもににする
+## [SHOULD] アーティファクトのgroupIdはライブラリ固有のもににする
 
 - Ormaのように複数のアーティファクトからなるライブラリでgroupIdをたとえば `com.github.gfx` みたいにしていたら「Ormaライブラリ群」を識別できない
 - なおartifactIdにも `orma` や `orma-processor` などライブラリ名を含めるほうがよい
   - artifactIdはしばしばファイル名として使われるので `library` みたいな名前だと他のものとパッと見てわからなくなりがち
 - Q「小さなライブラリなら `com.github.gfx` でもよいのでは」⇢ A「将来的にアーティファクトを分割したときに困るし、ルールはシンプルなほうがいいいので常に groupId をライブラリ固有のものにするのをおすすめする」
 
-## [MUST] bintrayに成果物を公開するときはライブラリごとにorgをつくる
+## [SHOULD] bintrayに成果物を公開するときはライブラリごとにorgをつくる
 
 - 理由のひとつは、groupId同様に「ライブラリ群」を識別しやすくするため
 - 理由のもうひとつは、公開権限を複数人にするにはorgにするしかないため
