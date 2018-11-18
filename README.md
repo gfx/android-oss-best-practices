@@ -13,6 +13,7 @@
 - [[MUST] OSSライセンスを設定する](#must-ossライセンスを設定する)
   - [補足: OSSライブラリを使うときにはまずライセンスを確認すべき](#補足-ossライブラリを使うときにはまずライセンスを確認すべき)
 - [[MUST] READMEを置く](#must-readmeを置く)
+  - [READMEについての規格 "Standard Readme"](#readmeについての規格-standard-readme)
 - [[MUST] リリースしたら git tag を打ってpushする](#must-リリースしたら-git-tag-を打ってpushする)
 - [[MUST] CI を設定してバッヂをREADMEに置く](#must-ci-を設定してバッヂをreadmeに置く)
 - [[MUST] アーティファクトのgroupIdはライブラリ固有のもににする](#must-アーティファクトのgroupidはライブラリ固有のもににする)
@@ -20,6 +21,7 @@
 - [[SHOULD] Android Studioでプロジェクトをつくる](#should-android-studioでプロジェクトをつくる)
 - [[SHOULD] テストを書く](#should-テストを書く)
 - [[SHOULD] ChangeLogファイルを置く](#should-changelogファイルを置く)
+  - [Changelogの書き方についての緒論](#changelogの書き方についての緒論)
 - [[SHOULD] リリースエンジニアリングをコード化する](#should-リリースエンジニアリングをコード化する)
 - [License](#license)
 
@@ -27,13 +29,14 @@
 
 ## この文書について
 
-- AndroidプロジェクトをOSSとして開発するにあたってのベストプラクティスをまとめた
-- あくまでも「プロジェクトの構成」について述べたもので、コードについては触れていない
+- AndroidプロジェクトをOSSとして開発するにあたってベストプラクティスをまとめた
+- あくまでも「プロジェクトの構成」についてまとめたもの
+  - gfxの個人的な経験に基づく
+  - コードについては触れていない
 - Androidに依存することも、OSSに一般的なことも混在しているが、いずれも利用者としてあると嬉しいという基準で選定した
 - 紹介するベストプラクティスは MUST / SHOULD で分類した
   - **MUST** は「これが満たされてないとプロダクションで使用するのは難しい」というレベル
   - **SHOULD** は「できれば満たしてほしい」というレベル
-
 
 ## ベストプラクティス実践事例
 
@@ -72,6 +75,16 @@ https://github.com/maskarade/Android-Orma
 - Q「コントリビューションガイドは何を書けばいいか」A「PRを送るのに困らないようにするための開発のための解説でよいかと。開発環境とか」
 
 例: https://github.com/maskarade/Android-Orma
+
+### READMEについての規格 "Standard Readme"
+
+https://github.com/RichardLitt/standard-readme
+
+* 必ずしも広まっているとはいえないものの、こういう規格もある
+* > Standard Readme is designed for open source libraries. Although it’s historically made for Node and npm projects, it also applies to libraries in other languages and package managers.
+  * "npm用に開発された規格だが、他のOSSライブラリにも適用できる" とのこと
+* 個人的には重厚すぎて完全に従うのは面倒くさい
+  * とはいえ見るべきものはあるので一読をおすすめしたい
 
 ## [MUST] リリースしたら git tag を打ってpushする
 
@@ -127,6 +140,12 @@ https://github.com/maskarade/Android-Orma
   - 差分へのリンク（例: https://github.com/maskarade/Android-Orma/compare/v6.0.1...v6.0.2 )
   - 修正内容
     - バグ修正 or 新機能などでセクションを分けることもあり
+
+### Changelogの書き方についての緒論
+
+https://keepachangelog.com/
+
+* Changelogの書き方についての文書
 
 ## [SHOULD] リリースエンジニアリングをコード化する
 - Ormaは gradle + make
