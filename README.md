@@ -3,6 +3,27 @@
 これは[OSS開発のリテラシー / Android編](https://paper.dropbox.com/doc/OSS-Android--ASA0GNW7rKNcc2UFqytnBbE3AQ-3Zp3zkvV2mJFF8gcpNyO5) として
 [potatotips #56, 2018/11/15 in SmartNews](https://potatotips.connpass.com/event/104242/) で発表したものを改編したものです。
 
+## Table of Contents
+
+<!-- TOC depthFrom:2 anchorMode:github.com -->
+
+- [Table of Contents](#table-of-contents)
+- [この文書について](#この文書について)
+- [ベストプラクティス実践事例](#ベストプラクティス実践事例)
+- [[MUST] OSSライセンスを設定する](#must-ossライセンスを設定する)
+  - [補足: OSSライブラリを使うときにはまずライセンスを確認すべき](#補足-ossライブラリを使うときにはまずライセンスを確認すべき)
+- [[MUST] READMEを置く](#must-readmeを置く)
+- [[MUST] リリースしたら git tag を打ってpushする](#must-リリースしたら-git-tag-を打ってpushする)
+- [[MUST] CI を設定してバッヂをREADMEに置く](#must-ci-を設定してバッヂをreadmeに置く)
+- [[MUST] アーティファクトのgroupIdはライブラリ固有のもににする](#must-アーティファクトのgroupidはライブラリ固有のもににする)
+- [[MUST] bintrayに成果物を公開するときはライブラリごとにorgをつくる](#must-bintrayに成果物を公開するときはライブラリごとにorgをつくる)
+- [[SHOULD] Android Studioでプロジェクトをつくる](#should-android-studioでプロジェクトをつくる)
+- [[SHOULD] テストを書く](#should-テストを書く)
+- [[SHOULD] ChangeLogファイルを置く](#should-changelogファイルを置く)
+- [[SHOULD] リリースエンジニアリングをコード化する](#should-リリースエンジニアリングをコード化する)
+- [License](#license)
+
+<!-- /TOC -->
 
 ## この文書について
 
@@ -29,7 +50,7 @@ https://github.com/maskarade/Android-Orma
 - Android界隈だと使われるライセンスはApache 2.0 License, MIT あたりがメジャーか
 
 
-## 補足: OSSライブラリを使うときにはまずライセンスを確認すべき
+### 補足: OSSライブラリを使うときにはまずライセンスを確認すべき
 
 - ライセンスのない野良コードを製品に組み込むのはNG（訴訟リスクあり）
 - GPL系も使うのは難しい
@@ -95,8 +116,6 @@ https://github.com/maskarade/Android-Orma
   - Robolectric固有の制限は（大量に）あるので、ライブラリによってはRobolectricだとまともに動かせないと思われるが…
     - それでもUIの絡まないビジネスロジック部分だけでもJVMでテストできると捗ると思われる
 
-----------
-
 ## [SHOULD] ChangeLogファイルを置く
 
 - できればほしい
@@ -110,7 +129,7 @@ https://github.com/maskarade/Android-Orma
     - バグ修正 or 新機能などでセクションを分けることもあり
 
 ## [SHOULD] リリースエンジニアリングをコード化する
-- Ormaは gradle + make 
+- Ormaは gradle + make
   - `bumpMajor` などのversion変更用taskがあるのは、README内の依存関係の記述を最新のバージョンに保つため
   - ツールはなんでもいいが、とにかくコード化してREADMEに書いておくべき
     - 主に自分のために
@@ -124,4 +143,28 @@ code CHANGES.md # edit change logs
 git add -va
 make publish # run tests, build artifacts, publish to jcenter, and make a git tag to HEAD
 ```
+
+## License
+
+MIT License
+
+Copyright (c) 2018 FUJI Goro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
